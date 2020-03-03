@@ -1,7 +1,6 @@
-import java.io.BufferedInputStream;
 import java.util.Scanner;
 
-public class Lab2 {
+public class Lab2_1 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.print("Hello!\nThis program calculate area of triangle\n\nEnter the A: ");
