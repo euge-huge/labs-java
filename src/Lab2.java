@@ -1,4 +1,3 @@
-import java.io.BufferedInputStream;
 import java.util.Scanner;
 
 public class Lab2 {
