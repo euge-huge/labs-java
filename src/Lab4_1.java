@@ -22,8 +22,6 @@ public class Lab4_1 {
                 "\nB = " + b);
 
         System.out.print("\n\n\n" +
-                "" +
-                "" +
                 "б) Исходные данные: " +
                 "\nZ = " + z +
                 "\nF = " + f +
