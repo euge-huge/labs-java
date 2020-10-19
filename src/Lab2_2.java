@@ -27,7 +27,7 @@ public class Lab2_2 {
             c = Double.parseDouble(scan.nextLine());
         }
 
-        System.out.print("Now:\nB = " + b + "\nC = " + c + "\nL = " + l + "\nM = " + m + "\nX1 = "
+        System.out.print("Before:\nB = " + b + "\nC = " + c + "\nL = " + l + "\nM = " + m + "\nX1 = "
                 + x1 + "\nX2 = " + x2 + "\nY = " + y + "\nZ = " + z + "\n\n");
 
         x1 = b + Math.sqrt(Math.pow(b,2)-4*b*c);
@@ -35,7 +35,7 @@ public class Lab2_2 {
         y = ( b*x1 -Math.pow(c,2)*x2 ) / 2 ;
         z = ( m*Math.pow(x2,2) + l*x1 ) / b;
 
-        System.out.print("Now:\nB = " + b + "\nC = " + c + "\nL = " + l + "\nM = " + m + "\nX1 = "
+        System.out.print("After:\nB = " + b + "\nC = " + c + "\nL = " + l + "\nM = " + m + "\nX1 = "
                 + x1 + "\nX2 = " + x2 + "\nY = " + y + "\nZ = " + z);
     }
 }

@@ -1,4 +1,3 @@
-import javax.security.sasl.SaslClient;
 import java.util.Scanner;
 public class Lab3_2 {
     public static void main(String[] args) {

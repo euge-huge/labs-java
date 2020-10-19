@@ -17,11 +17,14 @@ public class Lab5 {
             arr[i] = Double.parseDouble(scan.nextLine());
         }
 
-        System.out.print("\n\n");
-        /*1) Найти количество элементов равных единице, стоящих на чётных местах.
-        * ИЗМЕНИТЬ false, чтобы выполнить этот участок кода*/
+        System.out.print("Enter the choice of yours(1,2,3): ");
+        int choice = Integer.parseInt(scan.nextLine());
 
-        if(false) {
+
+        System.out.print("\n\n");
+        /*1) Найти количество элементов равных единице, стоящих на чётных местах.*/
+
+        if(choice == 1) {
             System.out.print("Our array now:\n");
             for(int i = 0; i < size; i++) {
                 System.out.print(arr[i] + " ");
@@ -38,9 +41,8 @@ public class Lab5 {
 
 
         /*2) Составить новый массив так, чтобы чередовались положительные и отрицательные числа.
-        * При условии, если СТРОГО половина отрицательных и половина положительных!
-        * ИЗМЕНИТЬ false, чтобы выполнить этот участок кода*/
-        if(false) {
+        * При условии, если СТРОГО половина отрицательных и половина положительных!*/
+        if(choice == 2) {
             System.out.print("Our array before:\n");
             for(int i = 0; i < size; i++) {
                 System.out.print(arr[i] + " ");
@@ -68,20 +70,19 @@ public class Lab5 {
             System.out.print("\n");
         }
 
-        /*3) Найти максимальный элемент и его местоположение в массиве!
-         * ИЗМЕНИТЬ false, чтобы выполнить этот участок кода*/
+        /*3) Найти максимальный элемент и его местоположение в массиве!*/
 
-        if(false) {
+        if(choice == 3) {
             System.out.print("Our array now:\n");
             for(int i = 0; i < size; i++) {
                 System.out.print(arr[i] + " ");
             }
             System.out.print("\n");
 
-            double max = 0;
+            double max = arr[0];
             int place = 0;
+
             for (int i = 0 ; i < size; i++) {
-                max = arr[i];
                 if(arr[i] >= max) {
                     max = arr[i];
                     place = i;
@@ -89,6 +90,10 @@ public class Lab5 {
             }
 
             System.out.println("Maximum of the array is: " + max + " in " + place);
+        }
+
+        if(choice != 1 && choice != 2 && choice != 3) {
+            System.out.println("Sorry! Something is wrong! Terminating...");
         }
 
     }
