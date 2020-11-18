@@ -6,21 +6,21 @@ public class laba3 {
     public static void main(String[] args) throws IOException {
 
         // Открываем все файлы
-        FileInputStream f_1 = new FileInputStream("D:\\Documents\\projects\\labs-java\\src\\laba3\\f1.txt");
+        FileInputStream f_1 = new FileInputStream("/home/bystrov/Documents/projects/labs-java/src/laba3/f1.txt");
         InputStreamReader f1 = new InputStreamReader(f_1, "UTF-8");
-        FileOutputStream f2 = new FileOutputStream("D:\\Documents\\projects\\labs-java\\src\\laba3\\f2.txt");
-        FileOutputStream f3 = new FileOutputStream("D:\\Documents\\projects\\labs-java\\src\\laba3\\f3.txt");
-        FileOutputStream f4 = new FileOutputStream("D:\\Documents\\projects\\labs-java\\src\\laba3\\f4.txt");
+        FileOutputStream f2 = new FileOutputStream("/home/bystrov/Documents/projects/labs-java/src/laba3/f2.txt");
+        FileOutputStream f3 = new FileOutputStream("/home/bystrov/Documents/projects/labs-java/src/laba3/f3.txt");
+        FileOutputStream f4 = new FileOutputStream("/home/bystrov/Documents/projects/labs-java/src/laba3/f4.txt");
 
         // Считываем файл в одну большую строку
         int i;
-        String line = new String();
+        StringBuilder line = new StringBuilder();
         while ((i = f1.read()) != -1) {
-            line += String.valueOf((char) i);
+            line.append((char) i);
         }
 
         // Делим строку по переносам строки
-        String[] lines = line.split("\n");
+        String[] lines = line.toString().split("\n\r");
 
         // Создаем переменные для хранения количества симолов, слови полной строки для f4
         int symbolsInLine = 0;
@@ -29,7 +29,7 @@ public class laba3 {
 
         for(i = 0; i < lines.length; i++) {
             // Удаляем все переносы строк
-            lines[i]= lines[i].replaceAll("[\n\r]", "");
+            lines[i]= lines[i].replaceAll("[\n]", "");
 
             // Сохраняем значения в переменные
             symbolsInLine = lines[i].length();
