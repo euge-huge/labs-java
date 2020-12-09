@@ -65,7 +65,7 @@ public class Laba7GUI extends JFrame {
         listOfBranches.setSelectedIndex(0);
         listOfBranches.addListSelectionListener(new SelectListListener());
 
-        amountOfEdition.setText(String.valueOf(getBranchByName(library, listOfBranches.getSelectedValue().toString()).getAmountOfEditions()));
+        amountOfEdition.setText(String.valueOf(getBranchByName(library, listOfBranches.getSelectedValue()).getAmountOfEditions()));
 
         infAboutBranch.setLayout(new GridLayout(0, 2));
 
@@ -100,6 +100,6 @@ public class Laba7GUI extends JFrame {
             descBtnListen = new GetDescriptionBtnClick(table, currentBranch);
             button.addActionListener(descBtnListen);
         }
-    };
+    }
 
 }
