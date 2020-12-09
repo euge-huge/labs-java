@@ -1,17 +1,12 @@
 package laba8;
 
+import laba9.EditionTableModel;
 import library.*;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import static laba8.HelpMethods.getNamesOfBranches;
 
 public class EditionDialog extends JDialog {
     public EditionDialog(Frame owner, String title, boolean modal, JLabel amount, Branch currentBranch, JTable table)  {
@@ -22,96 +17,88 @@ public class EditionDialog extends JDialog {
         JPanel panel = new JPanel();
         String[] types = {"Книга", "Журнал"};
 
-        JLabel label = new JLabel("Выберите тип издания: ");
-        JList list = new JList(types);
-        list.setSelectedIndex(0);
+        JLabel enterTypeLabel = new JLabel("Выберите тип издания: ");
+        JList listOfTypes = new JList(types);
+        listOfTypes.setSelectedIndex(0);
 
 
-        JLabel label1 = new JLabel("Введите название: ");
-        JTextField textField = new JTextField();
+        JLabel enterNameLabel = new JLabel("Введите название: ");
+        JTextField nameTextField = new JTextField();
 
-        JLabel label2 = new JLabel("Введите автора: ");
-        JTextField textField2 = new JTextField();
+        JLabel enterAuthorLabel = new JLabel("Введите автора: ");
+        JTextField authorTextField = new JTextField();
 
-        JLabel label3 = new JLabel("Введите год: ");
-        JTextField textField3 = new JTextField();
+        JLabel enterYearLabel = new JLabel("Введите год: ");
+        JTextField yearTextField = new JTextField();
 
-        JLabel label4 = new JLabel("Введите резюме (книга): ");
-        JTextField textField4 = new JTextField();
+        JLabel enterResumeLabel = new JLabel("Введите резюме (книга): ");
+        JTextField resumeTextField = new JTextField();
 
-        JLabel label5 = new JLabel("Введите статьи через запятую (журнал) : ");
-        JTextField textField5 = new JTextField();
-        textField5.setEnabled(false);
+        JLabel enterArticlesLabel = new JLabel("Введите статьи через запятую (журнал) : ");
+        JTextField articlesTextField = new JTextField();
+        articlesTextField.setEnabled(false);
 
 
         JButton button = new JButton("Создать");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (list.getSelectedValue().equals("Книга")) {
-                    Book book = null;
-                    try {
-                        book = new Book(textField.getText(), textField2.getText(), Integer.parseInt(textField3.getText()), textField4.getText());
-                    } catch (GodIzdaniyaException godIzdaniyaException) {
-                        godIzdaniyaException.printStackTrace();
-                    }
-
-                    currentBranch.addEdition(book);
-                } else {
-                    String articles = textField5.getText();
-                    ArrayList<String> splitArticles = new ArrayList<String>(Arrays.asList(articles.split(",")));
-
-                    Catalog catalog = null;
-                    try {
-                        catalog = new Catalog(textField.getText(), textField2.getText(), Integer.parseInt(textField3.getText()), splitArticles);
-                    } catch (GodIzdaniyaException godIzdaniyaException) {
-                        godIzdaniyaException.printStackTrace();
-                    }
-                    currentBranch.addEdition(catalog);
-
+        button.addActionListener(e -> {
+            if (listOfTypes.getSelectedValue().equals("Книга")) {
+                Book book = null;
+                try {
+                    book = new Book(nameTextField.getText(), authorTextField.getText(), Integer.parseInt(yearTextField.getText()), resumeTextField.getText());
+                } catch (GodIzdaniyaException godIzdaniyaException) {
+                    godIzdaniyaException.printStackTrace();
                 }
+                currentBranch.addEdition(book);
+            } else {
+                String articles = articlesTextField.getText();
+                ArrayList<String> splitArticles = new ArrayList<>(Arrays.asList(articles.split(",")));
 
-                table.setModel(new EditionTableModel(currentBranch));
-                amount.setText(String.valueOf(currentBranch.getAmountOfEditions()));
+                Catalog catalog = null;
+                try {
+                    catalog = new Catalog(nameTextField.getText(), authorTextField.getText(), Integer.parseInt(yearTextField.getText()), splitArticles);
+                } catch (GodIzdaniyaException godIzdaniyaException) {
+                    godIzdaniyaException.printStackTrace();
+                }
+                currentBranch.addEdition(catalog);
+
+            }
+            table.setModel(new EditionTableModel(currentBranch));
+            amount.setText(String.valueOf(currentBranch.getAmountOfEditions()));
+        });
+
+        listOfTypes.addListSelectionListener(e -> {
+            if (listOfTypes.getSelectedValue().equals("Журнал")) {
+                resumeTextField.setEnabled(false);
+                articlesTextField.setEnabled(true);
+            }
+            else {
+                resumeTextField.setEnabled(true);
+                articlesTextField.setEnabled(false);
             }
         });
 
-        list.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (list.getSelectedValue().equals("Журнал")) {
-                    textField4.setEnabled(false);
-                    textField5.setEnabled(true);
-                }
-                else {
-                    textField4.setEnabled(true);
-                    textField5.setEnabled(false);
-                }
-            }
-        });
+        panel.add(enterTypeLabel);
+        panel.add(listOfTypes);
 
+        panel.add(enterNameLabel);
+        panel.add(nameTextField);
 
-        panel.add(label);
-        panel.add(list);
+        panel.add(enterAuthorLabel);
+        panel.add(authorTextField);
 
-        panel.add(label1);
-        panel.add(textField);
+        panel.add(enterYearLabel);
+        panel.add(yearTextField);
 
-        panel.add(label2);
-        panel.add(textField2);
+        panel.add(enterResumeLabel);
+        panel.add(resumeTextField);
 
-        panel.add(label3);
-        panel.add(textField3);
-
-        panel.add(label4);
-        panel.add(textField4);
-
-        panel.add(label5);
-        panel.add(textField5);
+        panel.add(enterArticlesLabel);
+        panel.add(articlesTextField);
 
         panel.add(button);
 
-        panel.setLayout(new GridLayout(0, 2));
+        panel.setLayout(new GridLayout(0, 1));
+
         container.add(panel);
         this.pack();
     }

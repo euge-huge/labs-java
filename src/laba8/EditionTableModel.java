@@ -1,6 +1,5 @@
 package laba8;
 
-
 import library.Branch;
 
 import javax.swing.table.DefaultTableModel;
@@ -8,7 +7,7 @@ import javax.swing.table.DefaultTableModel;
 import static laba8.HelpMethods.getParsedTable;
 
 public class EditionTableModel extends DefaultTableModel {
-    protected Object data[][];
+    protected Object[][] data;
     protected int rowCount;
     protected String[] columnNames = {"Вид издания",
             "Название",

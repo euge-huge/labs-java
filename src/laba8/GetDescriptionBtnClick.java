@@ -1,6 +1,5 @@
 package laba8;
 
-
 import library.*;
 
 import javax.swing.*;

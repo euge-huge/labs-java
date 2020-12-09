@@ -8,8 +8,8 @@ public class ListOfBranchesModel extends DefaultListModel {
     public ListOfBranchesModel(String[] namesOfBranches) {
         this.namesOfBranches = namesOfBranches;
 
-        for (int i = 0; i < namesOfBranches.length; i++) {
-            this.addElement(namesOfBranches[i]);
+        for (String namesOfBranch : namesOfBranches) {
+            this.addElement(namesOfBranch);
         }
     }
 }

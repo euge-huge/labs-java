@@ -6,8 +6,6 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import static laba8.HelpMethods.getBranchByName;
@@ -65,7 +63,7 @@ public class Laba8GUI extends JFrame {
         listOfBranches.setSelectedIndex(0);
         listOfBranches.addListSelectionListener(new SelectListListener());
 
-        amountOfEdition.setText(String.valueOf(getBranchByName(library, listOfBranches.getSelectedValue().toString()).getAmountOfEditions()));
+        amountOfEdition.setText(String.valueOf(getBranchByName(library, listOfBranches.getSelectedValue()).getAmountOfEditions()));
 
         infAboutBranch.setLayout(new GridLayout(0, 2));
 
@@ -99,7 +97,7 @@ public class Laba8GUI extends JFrame {
             descBtnListen = new GetDescriptionBtnClick(table, currentBranch);
             button.addActionListener(descBtnListen);
         }
-    };
+    }
 
 
 
@@ -113,21 +111,15 @@ public class Laba8GUI extends JFrame {
         //create menu items
         JMenuItem createBranch = new JMenuItem("Отдел");
         Laba8GUI owner = this;
-        createBranch.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JDialog dialog = new BranchDialog(owner, "Создать отдел", true, library, listOfBranches);
-                dialog.setVisible(true);
-            }
+        createBranch.addActionListener(e -> {
+            JDialog dialog = new BranchDialog(owner, "Создать отдел", true, library, listOfBranches);
+            dialog.setVisible(true);
         });
 
         JMenuItem createEdition = new JMenuItem("Издание");
-        createEdition.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JDialog dialog = new EditionDialog(owner, "Создать издание", true, amountOfEdition, currentBranch, table);
-                dialog.setVisible(true);
-            }
+        createEdition.addActionListener(e -> {
+            JDialog dialog = new EditionDialog(owner, "Создать издание", true, amountOfEdition, currentBranch, table);
+            dialog.setVisible(true);
         });
 
 
