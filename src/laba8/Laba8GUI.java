@@ -113,12 +113,14 @@ public class Laba8GUI extends JFrame {
         Laba8GUI owner = this;
         createBranch.addActionListener(e -> {
             JDialog dialog = new BranchDialog(owner, "Создать отдел", true, library, listOfBranches);
+            dialog.setLocationRelativeTo(null);
             dialog.setVisible(true);
         });
 
         JMenuItem createEdition = new JMenuItem("Издание");
         createEdition.addActionListener(e -> {
             JDialog dialog = new EditionDialog(owner, "Создать издание", true, amountOfEdition, currentBranch, table);
+            dialog.setLocationRelativeTo(null);
             dialog.setVisible(true);
         });
 
