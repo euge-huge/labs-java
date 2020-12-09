@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="11.0.8" class="java.beans.XMLDecoder">
- <object class="laba6.Library" id="Library0">
+<java version="11.0.9.1" class="java.beans.XMLDecoder">
+ <object class="library.Library" id="Library0">
   <void property="branches">
    <void method="add">
-    <object class="laba6.Branch" id="Branch0">
+    <object class="library.Branch" id="Branch0">
      <void property="editions">
       <void method="add">
-       <object class="laba6.Book">
+       <object class="library.Book">
         <void property="author">
-         <string>1</string>
+         <string>ав 1</string>
         </void>
         <void property="name">
-         <string>1</string>
+         <string>кн 1</string>
         </void>
         <void property="resume">
-         <string>1</string>
+         <string>рез 1</string>
         </void>
         <void property="year">
          <int>1</int>
@@ -22,44 +22,89 @@
        </object>
       </void>
       <void method="add">
-       <object class="laba6.Catalog">
+       <object class="library.Book">
+        <void property="author">
+         <string>ав 2</string>
+        </void>
+        <void property="name">
+         <string>кн 2</string>
+        </void>
+        <void property="resume">
+         <string>рез 2</string>
+        </void>
+        <void property="year">
+         <int>2</int>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="library.Catalog">
         <void property="articles">
          <object class="java.util.ArrayList">
           <void method="add">
-           <string>1</string>
+           <string>ст 1</string>
+          </void>
+          <void method="add">
+           <string>ст 2</string>
+          </void>
+          <void method="add">
+           <string>ст 3</string>
           </void>
          </object>
         </void>
         <void property="author">
-         <string>1</string>
+         <string>ав 1</string>
         </void>
         <void property="name">
-         <string>1</string>
+         <string>жур 1</string>
         </void>
         <void property="year">
          <int>1</int>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="library.Catalog">
+        <void property="articles">
+         <object class="java.util.ArrayList">
+          <void method="add">
+           <string>ст 1</string>
+          </void>
+          <void method="add">
+           <string>ст 2</string>
+          </void>
+         </object>
+        </void>
+        <void property="author">
+         <string>ав 2</string>
+        </void>
+        <void property="name">
+         <string>жур 2</string>
+        </void>
+        <void property="year">
+         <int>2</int>
         </void>
        </object>
       </void>
      </void>
      <void property="name">
-      <string>1</string>
+      <string>отдел 1</string>
      </void>
     </object>
    </void>
    <void method="add">
-    <object class="laba6.Branch" id="Branch1">
+    <object class="library.Branch" id="Branch1">
      <void property="editions">
       <void method="add">
-       <object class="laba6.Book">
+       <object class="library.Book">
         <void property="author">
-         <string>1</string>
+         <string>ав</string>
         </void>
         <void property="name">
-         <string>1</string>
+         <string>кн</string>
         </void>
         <void property="resume">
-         <string>1</string>
+         <string>рез</string>
         </void>
         <void property="year">
          <int>1</int>
@@ -67,19 +112,19 @@
        </object>
       </void>
       <void method="add">
-       <object class="laba6.Catalog">
+       <object class="library.Catalog">
         <void property="articles">
          <object class="java.util.ArrayList">
           <void method="add">
-           <string>1</string>
+           <string>ст 1</string>
           </void>
          </object>
         </void>
         <void property="author">
-         <string>1</string>
+         <string>ав</string>
         </void>
         <void property="name">
-         <string>1</string>
+         <string>жур</string>
         </void>
         <void property="year">
          <int>1</int>
@@ -88,13 +133,109 @@
       </void>
      </void>
      <void property="name">
-      <string>1</string>
+      <string>отдел 2</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="library.Branch" id="Branch2">
+     <void property="editions">
+      <void method="add">
+       <object class="library.Book">
+        <void property="author">
+         <string>ав 1</string>
+        </void>
+        <void property="name">
+         <string>кн 1</string>
+        </void>
+        <void property="resume">
+         <string>рез 1</string>
+        </void>
+        <void property="year">
+         <int>1</int>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="library.Book">
+        <void property="author">
+         <string>ав 2</string>
+        </void>
+        <void property="name">
+         <string>кн 2</string>
+        </void>
+        <void property="resume">
+         <string>рез 2</string>
+        </void>
+        <void property="year">
+         <int>2</int>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="library.Catalog">
+        <void property="articles">
+         <object class="java.util.ArrayList">
+          <void method="add">
+           <string>ст 1</string>
+          </void>
+         </object>
+        </void>
+        <void property="author">
+         <string>ав 1</string>
+        </void>
+        <void property="name">
+         <string>жур 1</string>
+        </void>
+        <void property="year">
+         <int>1</int>
+        </void>
+       </object>
+      </void>
+     </void>
+     <void property="name">
+      <string>отдел 3</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="library.Branch" id="Branch3">
+     <void property="editions">
+      <void method="add">
+       <object class="library.Catalog">
+        <void property="articles">
+         <object class="java.util.ArrayList">
+          <void method="add">
+           <string>ст 1</string>
+          </void>
+          <void method="add">
+           <string>ст 2</string>
+          </void>
+          <void method="add">
+           <string>ст 3</string>
+          </void>
+         </object>
+        </void>
+        <void property="author">
+         <string>ав</string>
+        </void>
+        <void property="name">
+         <string>жур</string>
+        </void>
+        <void property="year">
+         <int>1</int>
+        </void>
+       </object>
+      </void>
+     </void>
+     <void property="name">
+      <string>отдел 4</string>
      </void>
     </object>
    </void>
   </void>
   <void property="name">
-   <string>1</string>
+   <string>Библиотека</string>
   </void>
  </object>
 </java>
