@@ -6,7 +6,7 @@ import java.beans.XMLEncoder;
 import java.io.*;
 
 public class WriteAndReadLibraryXML {
-    static void write(Library libraryToWrite, String filename) throws IOException {
+    public static void write(Library libraryToWrite, String filename) throws IOException {
         XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(filename)));
         encoder.writeObject(libraryToWrite);
 
